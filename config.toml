@@ -5,7 +5,7 @@ defaultContentLanguage = "es"
 theme = "hello-friend-ng"
 publishDir = "docs"
 baseURL = "https://pavelr31.github.io/"  # ¡Con https y tu usuario correcto!
-canonifyURLs = true  # Convierte rutas relativas a absolutas
+#canonifyURLs = true  # Convierte rutas relativas a absolutas
 relativeURLs = false
 
 
