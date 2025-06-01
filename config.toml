@@ -1,0 +1,88 @@
+baseURL = "https://pavelr31.github.io/"
+title   = "Portafolio Técnico de Pavel"
+languageCode = "es"
+defaultContentLanguage = "es"
+theme = "hello-friend-ng"
+publishDir = "docs"
+# Opciones generales
+buildDrafts = false
+canonifyURLs = true
+enableRobotsTXT = true
+enableEmoji = true
+
+# Estilo para código fuente
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+# Permalinks para los posts
+[permalinks]
+  posts = "/post/:year/:month/:title/"
+
+# Taxonomías (etiquetas, categorías)
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Idiomas y parámetros
+[languages]
+  [languages.es]
+    weight = 1
+    title = "Portafolio Técnico de Pavel"
+    languageName = "Español"
+    copyright = "© 2025 Pavel"
+    [languages.es.params]
+      subtitle = "Blog técnico y portafolio profesional"
+
+# Parámetros principales del sitio
+[params]
+  homeSubtitle = "Soluciones tecnológicas"
+  justifyContent = true
+  blogPurpose = "Blog técnico dedicado a Linux, Docker, programación y herramientas de automatización para DevOps y desarrolladores."
+  keywords = "linux, docker, programación, devops, automatización, herramientas, portafolio"
+  enableSharingButtons = true
+  enableGlobalLanguageMenu = false
+
+  [params.Portrait]
+    Path = "img/avatar.png"
+    Alt = "Avatar de Pavel"
+
+  #blogPurpose = "Bienvenido a mi blog donde comparto proyectos, tutoriales y guías prácticas sobre Linux, Docker, programación y automatización."
+
+  [params.author]
+    name = "Pavel"
+
+  [params.logo]
+    logoMark = ">"
+    logoText = "$ cd /pavel"
+    logoHomeLink = "/"
+
+# Redes sociales
+[[params.social]]
+  name = "github"
+  url  = "https://github.com/PavelR31"
+
+[[params.social]]
+  name = "linkedin"
+  url  = "https://www.linkedin.com/in/pavel-rodriguez-ab7306212/"
+
+[[params.social]]
+  name = "email"
+  url  = "mailto:pavelrodriguez616@gmail.com"
+
+# Menú principal (header)
+[menu]
+
+  [[menu.main]]
+    identifier = "sobre-mi"
+    name = "Sobre mí"
+    url = "/about/"
+
+  [[menu.main]]
+    identifier = "proyectos"
+    name = "Proyectos"
+    url = "/proyectos/"
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/post/"
