@@ -1,9 +1,14 @@
-baseURL = "https://pavelr31.github.io/"
+#baseURL = "https://pavelr31.github.io/"
 title   = "Portafolio Técnico de Pavel"
 languageCode = "es"
 defaultContentLanguage = "es"
 theme = "hello-friend-ng"
 publishDir = "docs"
+baseURL = "https://pavelr31.github.io/"  # ¡Con https y tu usuario correcto!
+canonifyURLs = true  # Convierte rutas relativas a absolutas
+relativeURLs = false
+
+
 # Opciones generales
 buildDrafts = false
 canonifyURLs = true
