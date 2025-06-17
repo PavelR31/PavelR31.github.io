@@ -48,7 +48,7 @@ PygmentsStyle = "monokai"
   enableGlobalLanguageMenu = false
 
   [params.Portrait]
-    Path = "img/avatar.png"
+    Path = "img/materia.png"
     Alt = "Avatar de Pavel"
 
   #blogPurpose = "Bienvenido a mi blog donde comparto proyectos, tutoriales y guías prácticas sobre Linux, Docker, programación y automatización."
