@@ -36,28 +36,6 @@
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://pavelr31.github.io/about/</link>
-      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://pavelr31.github.io/about/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Hi there # My name is Radek and I&amp;rsquo;m the author of this theme. I made it to help you present your ideas easier.
-We all know how hard is to start something on the web, especially these days. You need to prepare a bunch of stuff, configure them and when that’s done — create the content.
-This theme is pretty basic and covers all of the essentials. All you have to do is start typing!
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>Showcase</title>
       <link>https://pavelr31.github.io/showcase/</link>
       <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
@@ -72,6 +50,28 @@ This theme is pretty basic and covers all of the essentials. All you have to do 
         
         
           Header 2 # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Acerca de mi</title>
+      <link>https://pavelr31.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavelr31.github.io/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Soy Pavel Rodríguez, profesional en formación con experiencia práctica en áreas como redes, servidores, programación y ciberseguridad. Me he formado tanto de manera académica como autodidacta, enfocándome en aplicar soluciones técnicas reales en entornos simulados y proyectos personales.
+Cuento con conocimientos en:
+Administración de servidores (Linux como sistema principal) Servicios de red: DNS, web, correo, NFS, VPN, firewall, entre otros Ciberseguridad (blue team): detección y respuesta con Wazuh, Snort, Suricata, ELK Stack Monitoreo: Zabbix, LibreNMS Contenedores y automatización: Docker, bash scripting, introducción a Kubernetes Programación y desarrollo web: Laravel, JavaScript, Vue, React, .
           
         
         </description>
