@@ -153,7 +153,7 @@ sudo systemctl restart apache2
 - Ejemplos de como se ve el server web.
 
 
-![Imagen de Referencia (alt text)](/img/5.jpeg)
+![Imagen de Referencia (alt text)](/img/6.jpeg)
 ## Recursos adicionales
 
 - **Guía paso a paso completa:** [Descargar instrucciones detalladas](https://estunanleonedu-my.sharepoint.com/:w:/g/personal/lramirez_loaisiga23_est_unanleon_edu_ni/Efk6zkyn1sdAshY1BEf0tOIBAhGBn_xQpv7lEv9zwGCUgA?e=hg0Ij0)  
