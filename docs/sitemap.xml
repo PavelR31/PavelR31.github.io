@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pavelr31.github.io/proyectos/ha-&#43;-keepalived/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/debian/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/haproxy/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/keepalived/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/proyectos/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/</loc>
+    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://pavelr31.github.io/tags/docker/</loc>
     <lastmod>2025-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/tags/grafana/</loc>
-    <lastmod>2025-05-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/</loc>
     <lastmod>2025-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/proyectos/prometheus/</loc>
@@ -18,12 +36,6 @@
     <lastmod>2025-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/tags/prometheus/</loc>
-    <lastmod>2025-05-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/proyectos/</loc>
-    <lastmod>2025-05-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/</loc>
     <lastmod>2025-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/showcase/</loc>

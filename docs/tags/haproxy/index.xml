@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Proyectos on Portafolio Técnico de Pavel</title>
+    <title>haproxy on Portafolio Técnico de Pavel</title>
     
     
     
-    <link>https://pavelr31.github.io/proyectos/</link>
-    <description>Recent content in Proyectos on Portafolio Técnico de Pavel</description>
+    <link>https://pavelr31.github.io/tags/haproxy/</link>
+    <description>Recent content in haproxy on Portafolio Técnico de Pavel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© 2025 Pavel</copyright>
     <lastBuildDate>Mon, 23 Jun 2025 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://pavelr31.github.io/proyectos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pavelr31.github.io/tags/haproxy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -30,26 +30,6 @@
         
         
           Implementaremos un **cluster web Apache** con balanceo de carga usando HAProxy y redundancia mediante Keepalived para una IP virtual flotante. Ideal para entornos críticos donde la disponibilidad es prioridad.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Monitoreo con Prometheus, Grafana y Nextcloud</title>
-      <link>https://pavelr31.github.io/proyectos/prometheus/</link>
-      <pubDate>Sat, 31 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://pavelr31.github.io/proyectos/prometheus/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Escenario completo de monitoreo con servicios contenedorizados y visualización en tiempo real
           
         
         </description>

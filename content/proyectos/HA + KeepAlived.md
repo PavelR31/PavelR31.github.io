@@ -24,7 +24,7 @@ description: "Implementaremos un **cluster web Apache** con balanceo de carga us
 - **SO**: Debian en 4 máquinas virtuales.
 - **Red**: NAT Network en VirtualBox (Tools > Network > NAT Network > Create).
 
-![Imagen de Referencia (alt text)](/img/5.jpg)
+![Imagen de Referencia (alt text)](/img/5.jpeg)
 
 ### 2. Configuración de IPs Estáticas
 Editar `/etc/network/interfaces` en cada VM:
@@ -149,3 +149,11 @@ sudo chown -R www-data:www-data /var/www/html
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
+
+- Ejemplos de como se ve el server web.
+
+
+![Imagen de Referencia (alt text)](/img/5.jpeg)
+## Recursos adicionales
+
+- **Guía paso a paso completa:** [Descargar instrucciones detalladas](https://estunanleonedu-my.sharepoint.com/:w:/g/personal/lramirez_loaisiga23_est_unanleon_edu_ni/Efk6zkyn1sdAshY1BEf0tOIBAhGBn_xQpv7lEv9zwGCUgA?e=hg0Ij0)  

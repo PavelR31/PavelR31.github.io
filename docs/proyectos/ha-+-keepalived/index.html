@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    
+      <title>
+        Cluster Web Apache en Alta Disponibilidad con HAProxy &#43; Keepalived (IP Flotante) ::
+        Portafolio Técnico de Pavel — Blog técnico y portafolio profesional
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="🌐 Topología # Cliente: Usuario que accede al sitio web. IP Virtual (VIP): 172.22.0.100 (gestionada por Keepalived). Nodos HAProxy: haproxy1 (MASTER): 172.22.0.5 haproxy2 (BACKUP): 172.22.0.4 Servidores Apache: apache1: 172.22.0.10 apache2: 172.22.0.11 🛠️ Configuración Paso a Paso # 1. Creación del Escenario en VirtualBox # SO: Debian en 4 máquinas virtuales. Red: NAT Network en VirtualBox (Tools &amp;gt; Network &amp;gt; NAT Network &amp;gt; Create). 2. Configuración de IPs Estáticas # Editar /etc/network/interfaces en cada VM:"
+/>
+<meta
+  name="keywords"
+  content="linux, docker, programación, devops, automatización, herramientas, portafolio"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://pavelr31.github.io/proyectos/ha-&#43;-keepalived/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://pavelr31.github.io/css/style.css" />
+
+<link rel="stylesheet" href="https://pavelr31.github.io/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://pavelr31.github.io/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://pavelr31.github.io/img/favicon.png" />
+
+
+<link href="https://pavelr31.github.io/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cluster Web Apache en Alta Disponibilidad con HAProxy &#43; Keepalived (IP Flotante)"/>
+<meta name="twitter:description" content="Implementaremos un **cluster web Apache** con balanceo de carga usando HAProxy y redundancia mediante Keepalived para una IP virtual flotante. Ideal para entornos críticos donde la disponibilidad es prioridad."/>
+
+
+
+<meta property="og:title" content="Cluster Web Apache en Alta Disponibilidad con HAProxy &#43; Keepalived (IP Flotante)" />
+<meta property="og:description" content="Implementaremos un **cluster web Apache** con balanceo de carga usando HAProxy y redundancia mediante Keepalived para una IP virtual flotante. Ideal para entornos críticos donde la disponibilidad es prioridad." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pavelr31.github.io/proyectos/ha-&#43;-keepalived/" /><meta property="article:section" content="proyectos" />
+<meta property="article:published_time" content="2025-06-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-06-23T00:00:00+00:00" /><meta property="og:site_name" content="Portafolio Técnico de Pavel" />
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://pavelr31.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >$ cd /pavel</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://pavelr31.github.io/post/">Blog</a></li>
+        
+      
+        
+          <li><a href="https://pavelr31.github.io/proyectos/">Proyectos</a></li>
+        
+      
+        
+          <li><a href="https://pavelr31.github.io/about/">Sobre mí</a></li>
+        
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://pavelr31.github.io/post/">Blog</a></li>
+      
+    
+      
+        <li><a href="https://pavelr31.github.io/proyectos/">Proyectos</a></li>
+      
+    
+      
+        <li><a href="https://pavelr31.github.io/about/">Sobre mí</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Cluster Web Apache en Alta Disponibilidad con HAProxy + Keepalived (IP Flotante)</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          2025-06-23
+        </time>
+
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://pavelr31.github.io/tags/debian/">#debian</a>&nbsp;
+        
+          <a href="https://pavelr31.github.io/tags/haproxy/">#haproxy</a>&nbsp;
+        
+          <a href="https://pavelr31.github.io/tags/keepalived/">#keepalived</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="-topología">
+  🌐 Topología
+  <a href="#-topolog%c3%ada" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<ol>
+<li><strong>Cliente</strong>: Usuario que accede al sitio web.</li>
+<li><strong>IP Virtual (VIP)</strong>: <code>172.22.0.100</code> (gestionada por Keepalived).</li>
+<li><strong>Nodos HAProxy</strong>:
+<ul>
+<li><code>haproxy1</code> (MASTER): <code>172.22.0.5</code></li>
+<li><code>haproxy2</code> (BACKUP): <code>172.22.0.4</code></li>
+</ul>
+</li>
+<li><strong>Servidores Apache</strong>:
+<ul>
+<li><code>apache1</code>: <code>172.22.0.10</code></li>
+<li><code>apache2</code>: <code>172.22.0.11</code></li>
+</ul>
+</li>
+</ol>
+<p><img src="https://pavelr31.github.io/img/ha.png" alt="Imagen de Referencia (alt text)"></p>
+<h2 id="-configuración-paso-a-paso">
+  🛠️ Configuración Paso a Paso
+  <a href="#-configuraci%c3%b3n-paso-a-paso" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<h3 id="1-creación-del-escenario-en-virtualbox">
+  1. Creación del Escenario en VirtualBox
+  <a href="#1-creaci%c3%b3n-del-escenario-en-virtualbox" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<ul>
+<li><strong>SO</strong>: Debian en 4 máquinas virtuales.</li>
+<li><strong>Red</strong>: NAT Network en VirtualBox (Tools &gt; Network &gt; NAT Network &gt; Create).</li>
+</ul>
+<p><img src="https://pavelr31.github.io/img/5.jpeg" alt="Imagen de Referencia (alt text)"></p>
+<h3 id="2-configuración-de-ips-estáticas">
+  2. Configuración de IPs Estáticas
+  <a href="#2-configuraci%c3%b3n-de-ips-est%c3%a1ticas" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Editar <code>/etc/network/interfaces</code> en cada VM:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>auto enp0s3
+</span></span><span style="display:flex;"><span>iface enp0s3 inet static
+</span></span><span style="display:flex;"><span>address 172.22.0.5
+</span></span><span style="display:flex;"><span>netmask 255.255.255.0
+</span></span><span style="display:flex;"><span>gateway 172.22.0.1
+</span></span></code></pre></div><h3 id="3-instalacion-de-los-servivios">
+  3. Instalacion de los servivios
+  <a href="#3-instalacion-de-los-servivios" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<ul>
+<li><strong>En nodos apache</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install apache2 -y
+</span></span></code></pre></div><ul>
+<li><strong>En nodos HAProxy (Master Y backup)</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install haproxy keepalived -y
+</span></span></code></pre></div><h3 id="4-configuracion-de-haproxy">
+  4. Configuracion de HAProxy
+  <a href="#4-configuracion-de-haproxy" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<ul>
+<li><strong>Editar /etc/haproxy/haproxy.cfg (en ambos HAProxy):</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>frontend http_front
+</span></span><span style="display:flex;"><span>   bind *:80
+</span></span><span style="display:flex;"><span>   default_backend http_back
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>backend http_back
+</span></span><span style="display:flex;"><span>   balance roundrobin
+</span></span><span style="display:flex;"><span>   option httpchk
+</span></span><span style="display:flex;"><span>   server apache1 172.22.0.10:80 check
+</span></span><span style="display:flex;"><span>   server apache2 172.22.0.11:80 check
+</span></span></code></pre></div><ul>
+<li><strong>Editar el archivo  /etc/default/haproxy</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#Agregamos</span>
+</span></span><span style="display:flex;"><span>ENBALED<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><ul>
+<li><strong>Reiniciamos con</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart haproxy
+</span></span></code></pre></div><p>Realizamos exactamente lo mismo en el backup.</p>
+<h3 id="5-configuración-de-keepalived">
+  5. Configuración de keepalived
+  <a href="#5-configuraci%c3%b3n-de-keepalived" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<ul>
+<li><strong>En la maquina master editamos el archivo  /etc/keepalived/keepalived.conf</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vrrp_instance VI_1 <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    state MASTER
+</span></span><span style="display:flex;"><span>    interface enp0s3
+</span></span><span style="display:flex;"><span>    virtual_router_id <span style="color:#ae81ff">51</span>
+</span></span><span style="display:flex;"><span>    priority <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>    advert_int <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    authentication <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        auth_type PASS
+</span></span><span style="display:flex;"><span>        auth_pass <span style="color:#ae81ff">1111</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    virtual_ipaddress <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        172.22.0.100
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>En maquina backup</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vrrp_instance VI_1 <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    state BACKUP
+</span></span><span style="display:flex;"><span>    interface enp0s3
+</span></span><span style="display:flex;"><span>    virtual_router_id <span style="color:#ae81ff">51</span>
+</span></span><span style="display:flex;"><span>    priority <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>    advert_int <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    authentication <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        auth_type PASS
+</span></span><span style="display:flex;"><span>        auth_pass <span style="color:#ae81ff">1111</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    virtual_ipaddress <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        172.22.0.100
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="6--configuración-de-apache">
+  6 🧾 Configuración de Apache
+  <a href="#6--configuraci%c3%b3n-de-apache" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<ul>
+<li>En <strong>cada servidor Apache</strong>
+(<code>apache1</code> y <code>apache2</code>), realizamos los siguientes pasos:</li>
+</ul>
+<p>📁 1. Subir Archivos del Proyecto</p>
+<p>Copia tus archivos del sitio web (HTML, CSS, JS, etc.) al directorio raíz de Apache:</p>
+<p>En mi caso un proyecto de react, por lo tanto pegue el proyecto. En tu caso, pones la ruta del proyecto.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rm -rf /var/www/html/*
+</span></span><span style="display:flex;"><span>sudo cp -r /ruta/proyecto* /var/www/html/
+</span></span></code></pre></div><ul>
+<li><strong>Asegúrate de que los archivos tengan los permisos correctos:</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R www-data:www-data /var/www/html
+</span></span></code></pre></div><ul>
+<li>De ser necesario puedes crear .htaccess, en mi caso si lo es por usar react.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;IfModule mod_rewrite.c&gt;
+</span></span><span style="display:flex;"><span>    RewriteEngine On
+</span></span><span style="display:flex;"><span>    RewriteCond %<span style="color:#f92672">{</span>REQUEST_FILENAME<span style="color:#f92672">}</span> !-f
+</span></span><span style="display:flex;"><span>    RewriteCond %<span style="color:#f92672">{</span>REQUEST_FILENAME<span style="color:#f92672">}</span> !-d
+</span></span><span style="display:flex;"><span>    RewriteRule ^<span style="color:#f92672">(</span>.*<span style="color:#f92672">)</span>$ index.html <span style="color:#f92672">[</span>L<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>&lt;/IfModule&gt;
+</span></span></code></pre></div><ul>
+<li>Habilitamos la pagina y reinciamos el servicio</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo a2enmod rewrite
+</span></span><span style="display:flex;"><span>sudo systemctl restart apache2
+</span></span></code></pre></div><ul>
+<li>Ejemplos de como se ve el server web.</li>
+</ul>
+<p><img src="https://pavelr31.github.io/img/5.jpeg" alt="Imagen de Referencia (alt text)"></p>
+<h2 id="recursos-adicionales">
+  Recursos adicionales
+  <a href="#recursos-adicionales" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<ul>
+<li><strong>Guía paso a paso completa:</strong> <a href="https://estunanleonedu-my.sharepoint.com/:w:/g/personal/lramirez_loaisiga23_est_unanleon_edu_ni/Efk6zkyn1sdAshY1BEf0tOIBAhGBn_xQpv7lEv9zwGCUgA?e=hg0Ij0">Descargar instrucciones detalladas</a></li>
+</ul>
+
+    </div>
+    
+
+    
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2025 Pavel</div>
+      
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="https://pavelr31.github.io/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
