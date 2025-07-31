@@ -117,5 +117,25 @@ Administración de servidores (Linux como sistema principal) Servicios de red: D
         </description>
     </item>
     
+    <item>
+      <title>SecScope -  API</title>
+      <link>https://pavelr31.github.io/proyectos/secscope/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavelr31.github.io/proyectos/secscope/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Api para monitoreo de servidores linux.
+          
+        
+        </description>
+    </item>
+    
   </channel>
 </rss>

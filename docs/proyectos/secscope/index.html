@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    
+      <title>
+        SecScope -  API ::
+        Portafolio Técnico de Pavel — Blog técnico y portafolio profesional
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="SecScope API 🛡️ # API desarrollada con FastAPI para realizar un escaneo de seguridad del sistema Linux, incluyendo:
+Información del sistema (RAM, CPU, uptime, distro) Servicios en ejecución Binarios con permisos especiales (SUID/SGID) Auditoría del servicio SSH 📦 Requisitos # Python 3.9&#43; venv activado Linux con acceso a información del sistema 📁 Estructura del proyecto # secscope/ ├── api.py ├── utils/ │ ├── sysinfo.py │ ├── services.py │ ├── permissions."
+/>
+<meta
+  name="keywords"
+  content="linux, docker, programación, devops, automatización, herramientas, portafolio"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://pavelr31.github.io/proyectos/secscope/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://pavelr31.github.io/css/style.css" />
+
+<link rel="stylesheet" href="https://pavelr31.github.io/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://pavelr31.github.io/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://pavelr31.github.io/img/favicon.png" />
+
+
+<link href="https://pavelr31.github.io/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SecScope -  API"/>
+<meta name="twitter:description" content="Api para monitoreo de servidores linux."/>
+
+
+
+<meta property="og:title" content="SecScope -  API" />
+<meta property="og:description" content="Api para monitoreo de servidores linux." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pavelr31.github.io/proyectos/secscope/" /><meta property="article:section" content="proyectos" />
+
+<meta property="og:site_name" content="Portafolio Técnico de Pavel" />
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://pavelr31.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >$ cd /pavel</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://pavelr31.github.io/post/">Blog</a></li>
+        
+      
+        
+          <li><a href="https://pavelr31.github.io/proyectos/">Proyectos</a></li>
+        
+      
+        
+          <li><a href="https://pavelr31.github.io/about/">Sobre mí</a></li>
+        
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://pavelr31.github.io/post/">Blog</a></li>
+      
+    
+      
+        <li><a href="https://pavelr31.github.io/proyectos/">Proyectos</a></li>
+      
+    
+      
+        <li><a href="https://pavelr31.github.io/about/">Sobre mí</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">SecScope -  API</h1>
+    <div class="post-meta">
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://pavelr31.github.io/tags/linux/">#linux</a>&nbsp;
+        
+          <a href="https://pavelr31.github.io/tags/scripting/">#scripting</a>&nbsp;
+        
+          <a href="https://pavelr31.github.io/tags/python/">#python</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h1 id="secscope-api-">
+  SecScope API 🛡️
+  <a href="#secscope-api-" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+<p>API desarrollada con <strong>FastAPI</strong> para realizar un escaneo de seguridad del sistema Linux, incluyendo:</p>
+<ul>
+<li>Información del sistema (RAM, CPU, uptime, distro)</li>
+<li>Servicios en ejecución</li>
+<li>Binarios con permisos especiales (SUID/SGID)</li>
+<li>Auditoría del servicio SSH</li>
+</ul>
+<h2 id="-requisitos">
+  📦 Requisitos
+  <a href="#-requisitos" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<ul>
+<li>Python 3.9+</li>
+<li><code>venv</code> activado</li>
+<li>Linux con acceso a información del sistema</li>
+</ul>
+<h2 id="-estructura-del-proyecto">
+  📁 Estructura del proyecto
+  <a href="#-estructura-del-proyecto" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>secscope/
+</span></span><span style="display:flex;"><span>├── api.py
+</span></span><span style="display:flex;"><span>├── utils/
+</span></span><span style="display:flex;"><span>│ ├── sysinfo.py
+</span></span><span style="display:flex;"><span>│ ├── services.py
+</span></span><span style="display:flex;"><span>│ ├── permissions.py
+</span></span><span style="display:flex;"><span>│ └── ssh_audit.py
+</span></span><span style="display:flex;"><span>└── venv/
+</span></span></code></pre></div><h2 id="instalación-y-ejecución">
+  Instalación y ejecución
+  <a href="#instalaci%c3%b3n-y-ejecuci%c3%b3n" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. Crear entorno virtual si no existe</span>
+</span></span><span style="display:flex;"><span>python3 -m venv venv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Activar entorno</span>
+</span></span><span style="display:flex;"><span>source venv/bin/activate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Instalar dependencias</span>
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># o si no tienes requirements.txt:</span>
+</span></span><span style="display:flex;"><span>pip install fastapi uvicorn psutil
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. Ejecutar la API</span>
+</span></span><span style="display:flex;"><span>uvicorn api:app --reload
+</span></span></code></pre></div><ul>
+<li><strong>Repositorio</strong> <a href="https://github.com/PavelR31/SecScope">Descarga el repositorio para probar la API</a></li>
+</ul>
+<p>Una vez iniciada, accede a la documentación automática en:</p>
+<p>Swagger UI: http://localhost:8000/docs</p>
+<p>Redoc: http://localhost:8000/redoc</p>
+<h2 id="configuracion-de-grafana">
+  Configuracion de Grafana
+  <a href="#configuracion-de-grafana" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Abre Grafana y ve a &ldquo;Import dashboard&rdquo;</p>
+<p>Pega el contenido del archivo JSON o cárgalo directamente</p>
+<p>Asocia el panel a tu fuente de datos</p>
+<ul>
+<li><strong>Json Grafana</strong> <a href="https://estunanleonedu-my.sharepoint.com/:u:/g/personal/lramirez_loaisiga23_est_unanleon_edu_ni/ES2qZ9kwBfdGpOt1BFED6WsB4N4jTRCZchrYZTTu0MPTrA?e=BVcPJZ">Descargar instrucciones detalladas</a> ## Descarga el repositorio</li>
+</ul>
+<h2 id="-qué-deberías-ver-en-grafana">
+  ✅ ¿Qué deberías ver en Grafana?
+  <a href="#-qu%c3%a9-deber%c3%adas-ver-en-grafana" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<ul>
+<li>
+<p><strong>El dashboard de Grafana mostrará paneles como:</strong></p>
+</li>
+<li>
+<p><strong>Uso de CPU y RAM en tiempo real</strong></p>
+</li>
+<li>
+<p><strong>Servicios en ejecución</strong></p>
+</li>
+<li>
+<p><strong>Auditoría de configuración SSH</strong></p>
+</li>
+<li>
+<p><strong>Detalles del sistema (hostname, arquitectura, etc.)</strong></p>
+</li>
+</ul>
+<h1 id="vista-previa-del-dashboard">
+  Vista previa del dashboard
+  <a href="#vista-previa-del-dashboard" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+<p><img src="https://pavelr31.github.io/img/SecScope.jpeg" alt="Ejemplo del panel de control con métricas del sistema"></p>
+<hr>
+<h1 id="contribuciones">
+  Contribuciones
+  <a href="#contribuciones" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+<p>¡Bienvenidas las contribuciones!</p>
+<ul>
+<li>Haz fork del proyecto</li>
+<li>Crea una rama: <code>git checkout -b feature/nueva-funcionalidad</code></li>
+<li>Haz commit: <code>git commit -am 'Añade nueva funcionalidad'</code></li>
+<li>Haz push: <code>git push origin feature/nueva-funcionalidad</code></li>
+<li>Abre un Pull Request</li>
+</ul>
+
+    </div>
+    
+
+    
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2025 Pavel</div>
+      
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="https://pavelr31.github.io/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
