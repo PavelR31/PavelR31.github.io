@@ -10,10 +10,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© 2025 Pavel</copyright>
-    <lastBuildDate>Mon, 23 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jul 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pavelr31.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SecScope - API 🛡️</title>
+      <link>https://pavelr31.github.io/proyectos/secscope/</link>
+      <pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://pavelr31.github.io/proyectos/secscope/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Api para monitoreo de servidores linux.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Cluster Web Apache en Alta Disponibilidad con HAProxy &#43; Keepalived (IP Flotante)</title>
@@ -112,26 +132,6 @@ Administración de servidores (Linux como sistema principal) Servicios de red: D
         
         
           
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>SecScope -  API</title>
-      <link>https://pavelr31.github.io/proyectos/secscope/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pavelr31.github.io/proyectos/secscope/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Api para monitoreo de servidores linux.
           
         
         </description>

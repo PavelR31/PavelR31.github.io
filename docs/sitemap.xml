@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pavelr31.github.io/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/linux/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/proyectos/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/python/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/scripting/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/proyectos/secscope/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/</loc>
+    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://pavelr31.github.io/proyectos/ha-&#43;-keepalived/</loc>
     <lastmod>2025-06-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,16 +32,7 @@
     <loc>https://pavelr31.github.io/tags/haproxy/</loc>
     <lastmod>2025-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://pavelr31.github.io/</loc>
-    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://pavelr31.github.io/tags/keepalived/</loc>
-    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/proyectos/</loc>
-    <lastmod>2025-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/</loc>
     <lastmod>2025-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/tags/docker/</loc>
@@ -46,13 +58,5 @@
     <loc>https://pavelr31.github.io/archive/</loc>
   </url><url>
     <loc>https://pavelr31.github.io/categories/</loc>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/linux/</loc>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/python/</loc>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/scripting/</loc>
-  </url><url>
-    <loc>https://pavelr31.github.io/proyectos/secscope/</loc>
   </url>
 </urlset>

@@ -1,11 +1,9 @@
 ---
-title: "SecScope -  API"
-date: 2025-07-3
-tags: ["linux", "scripting", "python" ]
+title: "SecScope - API 🛡️"
+date: 2025-07-03
+tags: ["linux", "scripting", "python"]
 description: "Api para monitoreo de servidores linux."
-
 ---
-# SecScope API 🛡️
 
 API desarrollada con **FastAPI** para realizar un escaneo de seguridad del sistema Linux, incluyendo:
 
