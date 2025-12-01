@@ -2,14 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://pavelr31.github.io/tags/backup/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/categories/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/firewall/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
     <loc>https://pavelr31.github.io/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/linux/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/proxmox/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/categories/sysadmin/</loc>
+    <lastmod>2025-11-30T19:26:34-06:00</lastmod>
+  </url><url>
+    <loc>https://pavelr31.github.io/tags/</loc>
     <lastmod>2025-11-30T19:26:34-06:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/tutoriales/</loc>
     <lastmod>2025-11-30T19:26:34-06:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/linux/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/proyectos/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
@@ -21,9 +42,6 @@
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/proyectos/secscope/</loc>
-    <lastmod>2025-07-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://pavelr31.github.io/tags/</loc>
     <lastmod>2025-07-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://pavelr31.github.io/proyectos/ha-&#43;-keepalived/</loc>
@@ -59,7 +77,5 @@
     <loc>https://pavelr31.github.io/about/</loc>
   </url><url>
     <loc>https://pavelr31.github.io/archive/</loc>
-  </url><url>
-    <loc>https://pavelr31.github.io/categories/</loc>
   </url>
 </urlset>

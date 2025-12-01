@@ -15,5 +15,26 @@
 	<atom:link href="https://pavelr31.github.io/tutoriales/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Restaurar Backup Proxmox</title>
+      <link>https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/</link>
+      <pubDate>Sun, 30 Nov 2025 19:26:34 -0600</pubDate>
+      
+      <guid>https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Recientemente necesité mover unas máquinas virtuales desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.
+Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.176). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica.
+          
+        
+        </description>
+    </item>
+    
   </channel>
 </rss>

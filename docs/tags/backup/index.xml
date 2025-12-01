@@ -5,22 +5,22 @@
     
     
     
-    <link>http://localhost:1313/tags/backup/</link>
+    <link>https://pavelr31.github.io/tags/backup/</link>
     <description>Recent content in Backup on Portafolio Técnico de Pavel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>© 2025 Pavel</copyright>
     <lastBuildDate>Sun, 30 Nov 2025 19:26:34 -0600</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pavelr31.github.io/tags/backup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Restaurar Backup Proxmox</title>
-      <link>http://localhost:1313/tutoriales/restaurar-backup-proxmox/</link>
+      <link>https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/</link>
       <pubDate>Sun, 30 Nov 2025 19:26:34 -0600</pubDate>
       
-      <guid>http://localhost:1313/tutoriales/restaurar-backup-proxmox/</guid>
+      <guid>https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/</guid>
       <description>
         
           
@@ -30,7 +30,7 @@
         
         
           Recientemente necesité mover unas máquinas virtuales desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.
-Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.50). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica.
+Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.176). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica.
           
         
         </description>

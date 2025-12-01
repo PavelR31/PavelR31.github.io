@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     
       <title>
         Restaurar Backup Proxmox ::
@@ -19,7 +19,7 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
   content="linux, docker, programación, devops, automatización, herramientas, portafolio"
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="http://localhost:1313/tutoriales/restaurar-backup-proxmox/" />
+<link rel="canonical" href="https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/" />
 
 
 
@@ -27,21 +27,21 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
 
 
 
-<link rel="stylesheet" href="http://localhost:1313/css/style.css" />
+<link rel="stylesheet" href="https://pavelr31.github.io/css/style.css" />
 
-<link rel="stylesheet" href="http://localhost:1313/style.css" />
-
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:1313/img/apple-touch-icon-144-precomposed.png" />
-<link rel="shortcut icon" href="http://localhost:1313/img/favicon.png" />
+<link rel="stylesheet" href="https://pavelr31.github.io/style.css" />
 
 
-<link href="http://localhost:1313/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="http://localhost:1313/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="http://localhost:1313/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="http://localhost:1313/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="http://localhost:1313/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="http://localhost:1313/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://pavelr31.github.io/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://pavelr31.github.io/img/favicon.png" />
+
+
+<link href="https://pavelr31.github.io/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://pavelr31.github.io/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 
 
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Restaurar Backup Proxmox"/>
@@ -54,7 +54,7 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
 <meta property="og:description" content="Recientemente necesité mover unas máquinas virtuales desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.
 Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.176). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/tutoriales/restaurar-backup-proxmox/" /><meta property="article:section" content="tutoriales" />
+<meta property="og:url" content="https://pavelr31.github.io/tutoriales/restaurar-backup-proxmox/" /><meta property="article:section" content="tutoriales" />
 <meta property="article:published_time" content="2025-11-30T19:26:34-06:00" />
 <meta property="article:modified_time" content="2025-11-30T19:26:34-06:00" />
 
@@ -70,7 +70,7 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
       <header class="header">
   <span class="header__inner">
     <a
-  href="http://localhost:1313/"
+  href="https://pavelr31.github.io/"
   class="logo"
   style="text-decoration: none;"
 >
@@ -93,15 +93,15 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
     
       
         
-          <li><a href="http://localhost:1313/proyectos/">Proyectos</a></li>
+          <li><a href="https://pavelr31.github.io/proyectos/">Proyectos</a></li>
         
       
         
-          <li><a href="http://localhost:1313/about/">Sobre mí</a></li>
+          <li><a href="https://pavelr31.github.io/about/">Sobre mí</a></li>
         
       
         
-          <li><a href="http://localhost:1313/tutoriales/">Tutoriales</a></li>
+          <li><a href="https://pavelr31.github.io/tutoriales/">Tutoriales</a></li>
         
       
     
@@ -110,15 +110,15 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="http://localhost:1313/proyectos/">Proyectos</a></li>
+        <li><a href="https://pavelr31.github.io/proyectos/">Proyectos</a></li>
       
     
       
-        <li><a href="http://localhost:1313/about/">Sobre mí</a></li>
+        <li><a href="https://pavelr31.github.io/about/">Sobre mí</a></li>
       
     
       
-        <li><a href="http://localhost:1313/tutoriales/">Tutoriales</a></li>
+        <li><a href="https://pavelr31.github.io/tutoriales/">Tutoriales</a></li>
       
     
   </ul>
@@ -178,13 +178,13 @@ Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac
     
       <span class="post-tags">
         
-          <a href="http://localhost:1313/tags/proxmox/">#proxmox</a>&nbsp;
+          <a href="https://pavelr31.github.io/tags/proxmox/">#proxmox</a>&nbsp;
         
-          <a href="http://localhost:1313/tags/linux/">#linux</a>&nbsp;
+          <a href="https://pavelr31.github.io/tags/linux/">#linux</a>&nbsp;
         
-          <a href="http://localhost:1313/tags/backup/">#backup</a>&nbsp;
+          <a href="https://pavelr31.github.io/tags/backup/">#backup</a>&nbsp;
         
-          <a href="http://localhost:1313/tags/firewall/">#firewall</a>&nbsp;
+          <a href="https://pavelr31.github.io/tags/firewall/">#firewall</a>&nbsp;
         
       </span>
     
@@ -219,7 +219,7 @@ rsync -avP  *.vma.zst root@192.168.1.176:/var/lib/vz/dump/
 <pre tabindex="0"><code>ssh root@192.168.1.176
 cd /var/lib/vz/dump/
 ls -lh 
-</code></pre><p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/tutorialTerminal.png"></p>
+</code></pre><p><img alt="Imagen de Referencia (alt text)" src="https://pavelr31.github.io/img/tutorialTerminal.png"></p>
 <h2 id="3-restaurar-desde-la-interfaz-web">
   3. Restaurar desde la interfaz web
   <a href="#3-restaurar-desde-la-interfaz-web" class="h-anchor" aria-hidden="true">#</a>
@@ -232,7 +232,7 @@ ls -lh
 <p>Una vez dentro del panel principal, en el árbol de navegación lateral seguimos la ruta:</p>
 <p><strong><code>pve</code> → <code>local (pve)</code> → <code>Backups</code></strong></p>
 <p>En esta sección se muestran todos los respaldos almacenados localmente en el nodo, tanto de máquinas virtuales como de contenedores. Desde aquí podremos seleccionar el archivo de backup correspondiente y continuar con el proceso de restauración.</p>
-<p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/backups.png"></p>
+<p><img alt="Imagen de Referencia (alt text)" src="https://pavelr31.github.io/img/backups.png"></p>
 <h3 id="32-selección-del-respaldo-y-ejecución-de-la-restauración">
   3.2 Selección del respaldo y ejecución de la restauración
   <a href="#32-selecci%c3%b3n-del-respaldo-y-ejecuci%c3%b3n-de-la-restauraci%c3%b3n" class="h-anchor" aria-hidden="true">#</a>
@@ -241,7 +241,7 @@ ls -lh
 Podemos identificarla por su nombre, ID de VM, fecha del respaldo o tipo de archivo (<code>.vma.zst</code>).</p>
 <p>Cuando tengamos el respaldo correcto seleccionado, hacemos clic en el botón <strong>Restore</strong> ubicado en la parte superior de la interfaz.</p>
 <p>Este botón abrirá la ventana de restauración, desde donde podremos definir el nodo destino, el almacenamiento donde se desplegará la VM y otros parámetros antes de iniciar el proceso.</p>
-<p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/restaurarProxmox.png"></p>
+<p><img alt="Imagen de Referencia (alt text)" src="https://pavelr31.github.io/img/restaurarProxmox.png"></p>
 <h3 id="33-finalización-del-proceso-y-confirmación">
   3.3 Finalización del proceso y confirmación
   <a href="#33-finalizaci%c3%b3n-del-proceso-y-confirmaci%c3%b3n" class="h-anchor" aria-hidden="true">#</a>
@@ -251,7 +251,7 @@ Podemos ver el progreso en tiempo real desde la pestaña <strong>Tasks</strong> 
 <p>Cuando la restauración haya finalizado, la máquina virtual aparecerá nuevamente en el árbol lateral con su <strong>ID asignado</strong>, lista para encenderla y validar que todo funcione correctamente.</p>
 <p>Con esto el proceso queda completado.<br>
 A partir de este punto, la VM ya está totalmente operativa en el nuevo servidor Proxmox y se puede comenzar a trabajar con ella sin necesidad de pasos adicionales.</p>
-<p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/proceso.png"></p>
+<p><img alt="Imagen de Referencia (alt text)" src="https://pavelr31.github.io/img/proceso.png"></p>
 <blockquote>
 <p><strong>Nota importante:</strong><br>
 En este tutorial utilizamos nombres simplificados como <code>debian_dns.vma.zst</code> o <code>nas_truenas.vma.zst</code> únicamente para facilitar la lectura del ejemplo.<br>
@@ -291,7 +291,7 @@ Sin embargo, los respaldos generados por <strong>Proxmox VE</strong> siempre ten
 
 
 
-<script type="text/javascript" src="http://localhost:1313/bundle.min.js"></script>
+<script type="text/javascript" src="https://pavelr31.github.io/bundle.min.js"></script>
 
 
       

@@ -1,7 +1,6 @@
 ---
 title: "Restaurar Backup Proxmox"
 date: 2025-11-30T19:26:34-06:00
-draft: true
 tags: ["proxmox", "linux", "backup", "firewall"]
 categories: ["SysAdmin"]
 ---
