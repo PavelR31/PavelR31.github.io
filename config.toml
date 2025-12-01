@@ -87,7 +87,8 @@ PygmentsStyle = "monokai"
     name = "Proyectos"
     url = "/proyectos/"
 
+  
   [[menu.main]]
-    identifier = "posts"
-    name = "Blog"
-    url = "/post/"
+    identifier = "tutoriales"
+    name = "Tutoriales"
+    url = "/tutoriales/"

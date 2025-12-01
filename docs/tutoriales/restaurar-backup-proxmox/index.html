@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+      <title>
+        Restaurar Backup Proxmox ::
+        Portafolio Técnico de Pavel — Blog técnico y portafolio profesional
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Recientemente necesité mover unas máquinas virtuales desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.
+Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.176). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica."
+/>
+<meta
+  name="keywords"
+  content="linux, docker, programación, devops, automatización, herramientas, portafolio"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="http://localhost:1313/tutoriales/restaurar-backup-proxmox/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/style.css" />
+
+<link rel="stylesheet" href="http://localhost:1313/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:1313/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="http://localhost:1313/img/favicon.png" />
+
+
+<link href="http://localhost:1313/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://localhost:1313/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://localhost:1313/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://localhost:1313/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://localhost:1313/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://localhost:1313/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Restaurar Backup Proxmox"/>
+<meta name="twitter:description" content="Recientemente necesité mover unas máquinas virtuales desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.
+Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.176). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica."/>
+
+
+
+<meta property="og:title" content="Restaurar Backup Proxmox" />
+<meta property="og:description" content="Recientemente necesité mover unas máquinas virtuales desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.
+Escenario # Origen: Tengo el archivo .vma.zst en mi computadora local (Linux/Mac/WSL). Destino: Un servidor Proxmox nuevo (IP: 192.168.1.176). Objetivo: Restaurar la VM para que funcione en el nuevo servidor. 1. Subir el archivo al servidor # Proxmox espera encontrar los backups en una ruta específica." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/tutoriales/restaurar-backup-proxmox/" /><meta property="article:section" content="tutoriales" />
+<meta property="article:published_time" content="2025-11-30T19:26:34-06:00" />
+<meta property="article:modified_time" content="2025-11-30T19:26:34-06:00" />
+
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="http://localhost:1313/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >$ cd /pavel</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="http://localhost:1313/proyectos/">Proyectos</a></li>
+        
+      
+        
+          <li><a href="http://localhost:1313/about/">Sobre mí</a></li>
+        
+      
+        
+          <li><a href="http://localhost:1313/tutoriales/">Tutoriales</a></li>
+        
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="http://localhost:1313/proyectos/">Proyectos</a></li>
+      
+    
+      
+        <li><a href="http://localhost:1313/about/">Sobre mí</a></li>
+      
+    
+      
+        <li><a href="http://localhost:1313/tutoriales/">Tutoriales</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">Restaurar Backup Proxmox</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          2025-11-30
+        </time>
+
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="http://localhost:1313/tags/proxmox/">#proxmox</a>&nbsp;
+        
+          <a href="http://localhost:1313/tags/linux/">#linux</a>&nbsp;
+        
+          <a href="http://localhost:1313/tags/backup/">#backup</a>&nbsp;
+        
+          <a href="http://localhost:1313/tags/firewall/">#firewall</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>Recientemente necesité mover unas máquinas virtuales  desde un backup guardado en mi PC local hacia una instalación limpia de Proxmox VE. Aquí explico cómo hacerlo.</p>
+<h2 id="escenario">
+  Escenario
+  <a href="#escenario" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<ul>
+<li><strong>Origen:</strong> Tengo el archivo <code>.vma.zst</code> en mi computadora local (Linux/Mac/WSL).</li>
+<li><strong>Destino:</strong> Un servidor Proxmox nuevo (IP: <code>192.168.1.176</code>).</li>
+<li><strong>Objetivo:</strong> Restaurar la VM para que funcione en el nuevo servidor.</li>
+</ul>
+<h2 id="1-subir-el-archivo-al-servidor">
+  1. Subir el archivo al servidor
+  <a href="#1-subir-el-archivo-al-servidor" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Proxmox espera encontrar los backups en una ruta específica. Por defecto para el almacenamiento <code>local</code> es <code>/var/lib/vz/dump/</code>.</p>
+<p>Usamos <code>rsync</code> para subirlo. En este caso, mis archivos se llaman <code>debian_dns.vma.zst - firewall_pfsense.vma.zst - ldap_ubuntu.vma.zst  -  nas_truenas.vma.zst</code>.</p>
+<pre tabindex="0"><code># Desde la PC origen hasta el servidor proxmox. (ambas en el mismo segmento de red privada).
+rsync -avP  *.vma.zst root@192.168.1.176:/var/lib/vz/dump/
+</code></pre><h2 id="2-verificar-el-archivo-subido-en-proxmox">
+  2. Verificar el archivo subido en Proxmox
+  <a href="#2-verificar-el-archivo-subido-en-proxmox" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Nos podemos conectar por <code>ssh</code> al servidor.</p>
+<pre tabindex="0"><code>ssh root@192.168.1.176
+cd /var/lib/vz/dump/
+ls -lh 
+</code></pre><p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/tutorialTerminal.png"></p>
+<h2 id="3-restaurar-desde-la-interfaz-web">
+  3. Restaurar desde la interfaz web
+  <a href="#3-restaurar-desde-la-interfaz-web" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<h3 id="31-acceso-a-proxmox-ve-y-ubicación-del-módulo-de-respaldos">
+  3.1 Acceso a Proxmox VE y ubicación del módulo de respaldos
+  <a href="#31-acceso-a-proxmox-ve-y-ubicaci%c3%b3n-del-m%c3%b3dulo-de-respaldos" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Para iniciar el proceso de restauración, primero ingresamos a la interfaz web de <strong>Proxmox VE</strong> utilizando nuestras credenciales de administrador.</p>
+<p>Una vez dentro del panel principal, en el árbol de navegación lateral seguimos la ruta:</p>
+<p><strong><code>pve</code> → <code>local (pve)</code> → <code>Backups</code></strong></p>
+<p>En esta sección se muestran todos los respaldos almacenados localmente en el nodo, tanto de máquinas virtuales como de contenedores. Desde aquí podremos seleccionar el archivo de backup correspondiente y continuar con el proceso de restauración.</p>
+<p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/backups.png"></p>
+<h3 id="32-selección-del-respaldo-y-ejecución-de-la-restauración">
+  3.2 Selección del respaldo y ejecución de la restauración
+  <a href="#32-selecci%c3%b3n-del-respaldo-y-ejecuci%c3%b3n-de-la-restauraci%c3%b3n" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Una vez dentro del apartado <strong>Backups</strong>, localizamos en la lista el archivo correspondiente a la <strong>máquina virtual que deseamos restaurar</strong>.<br>
+Podemos identificarla por su nombre, ID de VM, fecha del respaldo o tipo de archivo (<code>.vma.zst</code>).</p>
+<p>Cuando tengamos el respaldo correcto seleccionado, hacemos clic en el botón <strong>Restore</strong> ubicado en la parte superior de la interfaz.</p>
+<p>Este botón abrirá la ventana de restauración, desde donde podremos definir el nodo destino, el almacenamiento donde se desplegará la VM y otros parámetros antes de iniciar el proceso.</p>
+<p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/restaurarProxmox.png"></p>
+<h3 id="33-finalización-del-proceso-y-confirmación">
+  3.3 Finalización del proceso y confirmación
+  <a href="#33-finalizaci%c3%b3n-del-proceso-y-confirmaci%c3%b3n" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>Una vez configurados los parámetros de restauración y confirmado el proceso, Proxmox iniciará la tarea de forma automática.<br>
+Podemos ver el progreso en tiempo real desde la pestaña <strong>Tasks</strong> o en la ventana emergente que muestra los logs de la operación.</p>
+<p>Cuando la restauración haya finalizado, la máquina virtual aparecerá nuevamente en el árbol lateral con su <strong>ID asignado</strong>, lista para encenderla y validar que todo funcione correctamente.</p>
+<p>Con esto el proceso queda completado.<br>
+A partir de este punto, la VM ya está totalmente operativa en el nuevo servidor Proxmox y se puede comenzar a trabajar con ella sin necesidad de pasos adicionales.</p>
+<p><img alt="Imagen de Referencia (alt text)" src="http://localhost:1313/img/proceso.png"></p>
+<blockquote>
+<p><strong>Nota importante:</strong><br>
+En este tutorial utilizamos nombres simplificados como <code>debian_dns.vma.zst</code> o <code>nas_truenas.vma.zst</code> únicamente para facilitar la lectura del ejemplo.<br>
+Sin embargo, los respaldos generados por <strong>Proxmox VE</strong> siempre tendrán una estructura de nombre específica que incluye el ID de la máquina virtual, el tipo de backup y la fecha.</p>
+<p>Un nombre real generado automáticamente por Proxmox luce así:</p>
+<pre tabindex="0"><code>vzdump-qemu-102-2025_11_30-18_43_44.vma.zst
+</code></pre><p>Al momento de subir o restaurar el archivo, es indispensable <strong>mantener el nombre original</strong>, ya que Proxmox utiliza esta estructura para identificar correctamente la VM, su configuración y los metadatos del respaldo.</p>
+</blockquote>
+<h2 id="conclusión">
+  Conclusión
+  <a href="#conclusi%c3%b3n" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>Restaurar máquinas virtuales en Proxmox VE a partir de un archivo de respaldo (<code>.vma.zst</code>) es un proceso directo y altamente confiable, ya que el formato nativo de Proxmox conserva no solo los discos virtuales, sino también la configuración completa de la VM (CPU, RAM, red, hardware virtual, BIOS/UEFI, etc.). Esto lo convierte en el método ideal cuando se requiere migrar instalaciones completas, recuperar un entorno de trabajo tras un fallo o mover laboratorios entre servidores.</p>
+<p>A diferencia de otros formatos de exportación —como <strong>OVF/OVA</strong>, imágenes <strong>QCOW2</strong>, <strong>RAW</strong> o discos en formatos genéricos—, los backups de Proxmox no requieren pasos adicionales de importación, conversión ni recreación manual de la configuración. Con un archivo <code>.vma.zst</code> basta con subirlo a la carpeta correspondiente y restaurarlo desde la interfaz web para tener la máquina lista y funcional en pocos minutos.</p>
+<p>Este tipo de restauración sobresale por su sencillez, seguridad y coherencia, ya que conserva el estado exacto de la VM al momento del respaldo. Una vez completado el proceso, la máquina virtual queda totalmente operativa y lista para continuar su funcionamiento sin necesidad de configuraciones extra.</p>
+
+    </div>
+    
+
+    
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© 2025 Pavel</div>
+      
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="http://localhost:1313/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
